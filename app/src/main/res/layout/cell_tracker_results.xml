@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.saintrepublic.locationtracker.common.TrackerData" />
+
+        <variable
+            name="isProcessing"
+            type="Boolean" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+            
+            <TextView
+                android:id="@+id/time_title_text_view"
+                style="@style/TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/time_text_view"
+                app:layout_constraintBottom_toBottomOf="@id/time_text_view"/>
+
+            <TextView
+                android:id="@+id/latitude_title_text_view"
+                style="@style/TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/latitude"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/latitude_text_view"
+                app:layout_constraintBottom_toBottomOf="@id/latitude_text_view"/>
+
+            <TextView
+                android:id="@+id/longitude_title_text_view"
+                style="@style/TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/longitude"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/longitude_text_view"
+                app:layout_constraintBottom_toBottomOf="@id/longitude_text_view"/>
+
+            <TextView
+                android:id="@+id/speed_title_text_view"
+                style="@style/TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/speed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/speed_text_view"
+                app:layout_constraintBottom_toBottomOf="@id/speed_text_view"/>
+            
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="right"
+                app:constraint_referenced_ids="time_title_text_view, latitude_title_text_view, latitude_title_text_view, speed_title_text_view"/>
+
+            <TextView
+                android:id="@+id/time_text_view"
+                style="@style/TextBody1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{data.time}"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="17.07.2020 12:00:00" />
+
+            <TextView
+                android:id="@+id/latitude_text_view"
+                style="@style/TextBody1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@{data.latitude}"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toBottomOf="@id/time_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="57.123456" />
+
+            <TextView
+                android:id="@+id/longitude_text_view"
+                style="@style/TextBody1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@{data.longitude}"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toBottomOf="@id/latitude_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="35.123456" />
+
+            <TextView
+                android:id="@+id/speed_text_view"
+                style="@style/TextBody1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@{data.speed}"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toBottomOf="@id/longitude_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="10.5 м/с" />
+
+            <View
+                android:id="@+id/first_separator"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/grey_300"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/speed_text_view"/>
+
+            <TextView
+                android:id="@+id/acceleration_title_text_view"
+                style="@style/TextTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/acceleration"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/first_separator" />
+
+            <TextView
+                style="@style/TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/x"
+                app:layout_constraintBottom_toBottomOf="@id/acceleration_x_text_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/acceleration_x_text_view" />
+
+            <TextView
+                style="@style/TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/y"
+                app:layout_constraintBottom_toBottomOf="@id/acceleration_y_text_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/acceleration_y_text_view" />
+
+            <TextView
+                style="@style/TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/z"
+                app:layout_constraintBottom_toBottomOf="@id/acceleration_z_text_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/acceleration_z_text_view" />
+
+            <TextView
+                android:id="@+id/acceleration_x_text_view"
+                style="@style/TextBody1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@{data.accX}"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toBottomOf="@id/acceleration_title_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="5.123456 м/с^2" />
+
+            <TextView
+                android:id="@+id/acceleration_y_text_view"
+                style="@style/TextBody1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@{data.accY}"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toBottomOf="@id/acceleration_x_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="5.123456 м/с^2" />
+
+            <TextView
+                android:id="@+id/acceleration_z_text_view"
+                style="@style/TextBody1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@{data.accZ}"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toBottomOf="@id/acceleration_y_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="5.123456 м/с^2" />
+
+            <View
+                android:id="@+id/second_separator"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/grey_300"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/acceleration_z_text_view"/>
+
+            <TextView
+                android:id="@+id/angle_title_text_view"
+                style="@style/TextTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/angular_speed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/second_separator" />
+
+            <TextView
+                style="@style/TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/x"
+                app:layout_constraintBottom_toBottomOf="@id/angle_x_text_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/angle_x_text_view" />
+
+            <TextView
+                style="@style/TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/y"
+                app:layout_constraintBottom_toBottomOf="@id/angle_y_text_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/angle_y_text_view" />
+
+            <TextView
+                style="@style/TextBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/z"
+                app:layout_constraintBottom_toBottomOf="@id/angle_z_text_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/angle_z_text_view" />
+
+            <TextView
+                android:id="@+id/angle_x_text_view"
+                style="@style/TextBody1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@{data.angX}"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toBottomOf="@id/angle_title_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="7.123456 рад/с" />
+
+            <TextView
+                android:id="@+id/angle_y_text_view"
+                style="@style/TextBody1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@{data.angY}"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toBottomOf="@id/angle_x_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="7.123456 рад/с" />
+
+            <TextView
+                android:id="@+id/angle_z_text_view"
+                style="@style/TextBody1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@{data.angZ}"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toBottomOf="@id/angle_y_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="7.123456 рад/с" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/white_1000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:goneIfNot="@{isProcessing}"
+                tools:visibility="gone">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

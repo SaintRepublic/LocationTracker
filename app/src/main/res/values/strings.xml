@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Location Tracker</string>
+    <string name="title_activity_main">Отслеживание</string>
+    <string name="title_activity_history">История</string>
+
+    <string name="ok">ОК</string>
+    <string name="cancel">Отмена</string>
+    <string name="enable">Включить</string>
+    <string name="settings">Настройки</string>
+    <string name="start">Начать</string>
+
+    <string name="permission_request_dialog_text">Для продолжения необходимо предоставить разрешение на определение местоположения в настройках вашего устройства.</string>
+    <string name="enable_location_dialog_text">Для продолжения необходимо включит определение местоположения в настройках вашего устройства.</string>
+    <string name="location_disabled_error">Определение местоположения было выключено до завершения отслеживания устройства!</string>
+
+    <string name="time">Время</string>
+    <string name="latitude">Ширина</string>
+    <string name="longitude">Долгота</string>
+    <string name="speed">Скорость</string>
+    <string name="acceleration">Ускорение</string>
+    <string name="angular_speed">Угловая скорость</string>
+
+    <string name="x">X</string>
+    <string name="y">Y</string>
+    <string name="z">Z</string>
+</resources>
