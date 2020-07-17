@@ -27,6 +27,7 @@ Kotlin (Версия 1.3.72)
 5.0 (Lollipop)
 
 #### Используемые библиотеки
+- [Data Binding](https://developer.android.com/topic/libraries/data-binding)
 - [Lifecycle компоненты (Версия 2.2.0)](https://developer.android.com/jetpack/androidx/releases/lifecycle)
 - [Koin - Внедрение зависимостей (Версия 2.0.1)](https://insert-koin.io/)
 - [MVVM Adapter (Версия 0.4.1)](https://github.com/akvast/mvvm)
