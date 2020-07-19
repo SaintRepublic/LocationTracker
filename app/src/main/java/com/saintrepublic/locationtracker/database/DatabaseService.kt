@@ -87,7 +87,7 @@ class DatabaseService(context: Context) : SQLiteOpenHelper(
 
     companion object {
         private const val DATABASE_NAME = "tracker.db"
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 2
 
         private const val TABLE_HISTORY = "history"
 
@@ -99,9 +99,9 @@ class DatabaseService(context: Context) : SQLiteOpenHelper(
         private const val COLUMN_ACC_X = "acc_x"
         private const val COLUMN_ACC_Y = "acc_y"
         private const val COLUMN_ACC_Z = "acc_z"
-        private const val COLUMN_ANG_X = "agl_x"
-        private const val COLUMN_ANG_Y = "agl_y"
-        private const val COLUMN_ANG_Z = "agl_z"
+        private const val COLUMN_ANG_X = "ang_x"
+        private const val COLUMN_ANG_Y = "ang_y"
+        private const val COLUMN_ANG_Z = "ang_z"
     }
 
 }
